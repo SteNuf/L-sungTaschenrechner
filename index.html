@@ -5,20 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lösung Taschenrechner Modul 3</title>
     <link rel="stylesheet" href="styles.css" />
-    <script></script>
+    <script>
+      let currentInput = 0; // aktuelle Eingabe
+      let previousInput = 0; // vorherige Zahl/Eingabe
+      let operator = "+";
+
+      //Zahl in Eingabefeld eingeben
+      function number(zahl) {
+        // 1--> 1*10 = 10 + 1 --> 11
+        currentInput = currentInput * 10 + zahl;
+        console.log(currentInput);
+        updateCurrentInput();
+
+        /**
+         * 1. Input Zahl eingebe (1)
+         * 2. Add
+         * 3. Gebe Zahl ein (2)
+         * 4. Subtract
+         * 5. 1+2 ausführen und als Ergebnis gespeichert (3)
+         * 6. gebe Zahl ein (1)
+         * 7. Multiply
+         * 8. 3 - 1 ausgeführt (2)
+         * 9. Gebe Zahl ein
+         * 10. Operator
+         * 11. 2*2 ausgeführt
+         * */
+      }
+
+      //Zahlen sollen addiert werden
+      function add() {
+        performOperator();
+        operator = "+";
+        currentInput = 0;
+        updatePreviousInput();
+        updateCurrentInput();
+      }
+
+      //Zahlen sollen substrahiert werden
+      function subtract() {}
+
+      //Zahlen sollen multipliziert werden
+      function multiply() {}
+
+      //Zahlen sollen geteilt werden
+      function divide() {}
+
+      //Summe soll ausgegebn werden
+      function enter() {}
+
+      function performOperator() {
+        let currentResult = 0;
+        if (operator === "+") {
+          currentResult = previousInput + currentInput;
+        }
+        // previous = 1; current =1
+        previousInput = currentResult;
+      }
+
+      //Alles zurücksetzen
+      function clearCalculator() {}
+
+      function updateCurrentInput() {
+        document.getElementById("eingabe").innerHTML = currentInput;
+      }
+      function updatePreviousInput() {
+        document.getElementById("zwischenstand").innerHTML =
+          previousInput + " + ";
+      }
+    </script>
   </head>
+
   <body>
-    <div id="zwischenstand">0</div>
-    <div id="eingabe">0</div>
-    <div class="grid-container">
-      <button class="grid-item">7</button><button class="grid-item">8</button
-      ><button class="grid-item">9</button><button class="grid-item">/</button>
-      <button class="grid-item">4</button><button class="grid-item">5</button
-      ><button class="grid-item">6</button><button class="grid-item">*</button>
-      <button class="grid-item">3</button><button class="grid-item">2</button
-      ><button class="grid-item">1</button><button class="grid-item">-</button>
-      <button class="grid-item">CE</button><button class="grid-item">0</button
-      ><button class="grid-item">=</button><button class="grid-item">+</button>
+    <div class="wrapper">
+      <div class="calculator">
+        <div id="zwischenstand">0</div>
+        <div id="eingabe">0</div>
+        <div class="grid-container">
+          <button class="grid-item" onclick="number(7)">7</button
+          ><button class="grid-item" onclick="number(8)">8</button
+          ><button class="grid-item" onclick="number(9)">9</button
+          ><button class="grid-item">/</button>
+          <button class="grid-item" onclick="number(4)">4</button
+          ><button class="grid-item" onclick="number(5)">5</button
+          ><button class="grid-item" onclick="number(6)">6</button
+          ><button class="grid-item">*</button>
+          <button class="grid-item" onclick="number(3)">3</button
+          ><button class="grid-item" onclick="number(2)">2</button
+          ><button class="grid-item" onclick="number(1)">1</button
+          ><button class="grid-item">-</button>
+          <button class="grid-item">CE</button
+          ><button class="grid-item" onclick="number(0)">0</button
+          ><button class="grid-item">=</button
+          ><button class="grid-item" onclick="add()">+</button>
+        </div>
+      </div>
+      <div id="list">1</div>
     </div>
   </body>
 </html>

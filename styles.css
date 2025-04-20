@@ -21,4 +21,22 @@ body {
 .grid-item {
   font-size: 2rem;
   height: 5rem;
+  border-radius: 5px;
+  border-color: solid 1px grey;
+}
+#list {
+  width: 15rem;
+  font-size: 2rem;
+  padding: 1rem;
+  border-left: solid 1px grey;
+  height: 100vh;
+  text-align: right;
+}
+.wrapper {
+  display: flex;
+}
+
+.calculator {
+  flex: 1;
+  padding-right: 1rem;
 }
