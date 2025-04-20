@@ -9,6 +9,7 @@
       let currentInput = 0; // aktuelle Eingabe
       let previousInput = 0; // vorherige Zahl/Eingabe
       let operator = "+";
+      let liste = "";
 
       //Zahl in Eingabefeld eingeben
       function number(zahl) {
@@ -74,11 +75,21 @@
         } else if (operator === "/") {
           currentResult = previousInput / currentInput;
         }
+        //previousInput + currentInput = currentResult
+        let listString =
+          "<p>" +
+          previousInput +
+          operator +
+          currentInput +
+          "=" +
+          currentResult +
+          "</p>";
+        liste = listString + liste;
+        updateList();
         // previous = 1; current =1
         previousInput = currentResult;
 
         currentInput = 0;
-
         updateCurrentInput();
       }
 
@@ -91,6 +102,10 @@
       function updatePreviousInput() {
         document.getElementById("zwischenstand").innerHTML =
           previousInput + operator;
+      }
+
+      function updateList() {
+        document.getElementById("list").innerHTML = liste;
       }
     </script>
   </head>
@@ -119,7 +134,7 @@
           ><button class="grid-item" onclick="add()">+</button>
         </div>
       </div>
-      <div id="list">1</div>
+      <div id="list"></div>
     </div>
   </body>
 </html>
