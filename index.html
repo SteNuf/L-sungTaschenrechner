@@ -36,19 +36,29 @@
       function add() {
         performOperator();
         operator = "+";
-        currentInput = 0;
         updatePreviousInput();
-        updateCurrentInput();
       }
 
       //Zahlen sollen substrahiert werden
-      function subtract() {}
+      function subtract() {
+        performOperator();
+        operator = "-";
+        updatePreviousInput();
+      }
 
       //Zahlen sollen multipliziert werden
-      function multiply() {}
+      function multiply() {
+        performOperator();
+        operator = "*";
+        updatePreviousInput();
+      }
 
       //Zahlen sollen geteilt werden
-      function divide() {}
+      function divide() {
+        performOperator();
+        operator = "/";
+        updatePreviousInput();
+      }
 
       //Summe soll ausgegebn werden
       function enter() {}
@@ -57,9 +67,19 @@
         let currentResult = 0;
         if (operator === "+") {
           currentResult = previousInput + currentInput;
+        } else if (operator === "-") {
+          currentResult = previousInput - currentInput;
+        } else if (operator === "*") {
+          currentResult = previousInput * currentInput;
+        } else if (operator === "/") {
+          currentResult = previousInput / currentInput;
         }
         // previous = 1; current =1
         previousInput = currentResult;
+
+        currentInput = 0;
+
+        updateCurrentInput();
       }
 
       //Alles zurücksetzen
@@ -70,7 +90,7 @@
       }
       function updatePreviousInput() {
         document.getElementById("zwischenstand").innerHTML =
-          previousInput + " + ";
+          previousInput + operator;
       }
     </script>
   </head>
@@ -84,15 +104,15 @@
           <button class="grid-item" onclick="number(7)">7</button
           ><button class="grid-item" onclick="number(8)">8</button
           ><button class="grid-item" onclick="number(9)">9</button
-          ><button class="grid-item">/</button>
+          ><button class="grid-item" onclick="divide()">/</button>
           <button class="grid-item" onclick="number(4)">4</button
           ><button class="grid-item" onclick="number(5)">5</button
           ><button class="grid-item" onclick="number(6)">6</button
-          ><button class="grid-item">*</button>
+          ><button class="grid-item" onclick="multiply()">*</button>
           <button class="grid-item" onclick="number(3)">3</button
           ><button class="grid-item" onclick="number(2)">2</button
           ><button class="grid-item" onclick="number(1)">1</button
-          ><button class="grid-item">-</button>
+          ><button class="grid-item" onclick="subtract()">-</button>
           <button class="grid-item">CE</button
           ><button class="grid-item" onclick="number(0)">0</button
           ><button class="grid-item">=</button
